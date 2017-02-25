@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {InputComponent} from "./input/input.component";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app works!';
+
+  votos = [
+    {title: 'opcion 1'},
+    {title: 'opcion 2'},
+    {title: 'opcion 3'},
+    {title: 'opcion 4'}
+  ]
 }
