@@ -8,6 +8,7 @@ import {InputComponent} from "./input/input.component";
 })
 export class AppComponent {
   title = 'app works!';
+  votacion = '';
 
   votos = [
     {title: 'opcion 1'},
@@ -15,4 +16,8 @@ export class AppComponent {
     {title: 'opcion 3'},
     {title: 'opcion 4'}
   ]
+
+  addVoto(response:string){
+    this.votacion = "You Choose: " + response;
+  }
 }
