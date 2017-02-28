@@ -29,4 +29,8 @@ export class AppComponent {
 
   count = 5;
   factor = 1;
+
+  onSubmit(form:any):void{
+    console.log("this form contain ", form);
+  }
 }

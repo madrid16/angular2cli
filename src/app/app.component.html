@@ -20,3 +20,19 @@
     <span myHighlight>[{{ticket.estado}}]</span>
   </li>
 </ul>
+
+<form #f="ngForm" (submit)="onSubmit(f.value)">
+  <div>
+    <label for="nameInput">Name</label>
+    <input type="text" id="nameInput" placeholder="Name" name="name" ngModel />
+  </div>
+  <div>
+    <label for="nameApellido">Name</label>
+    <input type="text" id="nameApellido" placeholder="Surname" name="surname" ngModel />
+  </div>
+  <div>
+    <label for="nameTwitter">Name</label>
+    <input type="text" id="nameTwitter" placeholder="Twitter" name="twitter" ngModel />
+  </div>
+  <button type="submit">Submit</button>
+</form>
