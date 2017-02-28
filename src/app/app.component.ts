@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {InputComponent} from "./input/input.component";
 import {TicketService} from "./services/ticket.service";
+import {FormGroup, FormBuilder} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -12,8 +13,13 @@ export class AppComponent {
   votacion = '';
   tickets: any;
 
-  constructor(private ticketService: TicketService){
+  myForm: FormGroup;
+
+  constructor(private ticketService: TicketService, private fb: FormBuilder){
     this.tickets = ticketService.getTicket();
+    this.myForm = fb.group({
+      'name': ['Edgar']
+    });
   }
 
   votos = [
@@ -30,7 +36,7 @@ export class AppComponent {
   count = 5;
   factor = 1;
 
-  onSubmit(form:any):void{
-    console.log("this form contain ", form);
+  onSubmit(value:string):void{
+    console.log("this form contain ", value);
   }
 }

@@ -21,18 +21,10 @@
   </li>
 </ul>
 
-<form #f="ngForm" (submit)="onSubmit(f.value)">
+<form [formGroup]="myForm" (ngSubmit)="myForm.value">
   <div>
     <label for="nameInput">Name</label>
-    <input type="text" id="nameInput" placeholder="Name" name="name" ngModel />
-  </div>
-  <div>
-    <label for="nameApellido">Name</label>
-    <input type="text" id="nameApellido" placeholder="Surname" name="surname" ngModel />
-  </div>
-  <div>
-    <label for="nameTwitter">Name</label>
-    <input type="text" id="nameTwitter" placeholder="Twitter" name="twitter" ngModel />
+    <input type="text" id="nameInput" placeholder="Name" name="name" [formControl]="myForm.controls['name']" />
   </div>
   <button type="submit">Submit</button>
 </form>
