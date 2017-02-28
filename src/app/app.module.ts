@@ -6,12 +6,16 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {InputComponent} from "./input/input.component";
 import {ConversorPipe} from "./pipes/conversor.pipe";
+import {HighlightDirective} from "./directives/highlight.directive";
+import {GigantDirective} from "./directives/gigant.directive";
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
-    ConversorPipe
+    ConversorPipe,
+    HighlightDirective,
+    GigantDirective
   ],
   imports: [
     BrowserModule,
