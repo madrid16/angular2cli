@@ -15,9 +15,12 @@ export class AppComponent {
     {title: 'opcion 2'},
     {title: 'opcion 3'},
     {title: 'opcion 4'}
-  ]
+  ];
 
   addVoto(response:string){
     this.votacion = "You Choose: " + response;
   }
+
+  count = 5;
+  factor = 1;
 }

@@ -5,3 +5,11 @@
   <input-component voto="{{voto.title}}" (addVoto)="addVoto($event)"></input-component>
 </div>
 <h1>{{votacion}}</h1>
+
+<h2>Conversor</h2>
+
+<div>Count: <input [(ngModel)]="count" /></div>
+<div>1 USD is equal : <input [(ngModel)]="factor"></div>
+<p>
+  oh is : {{count | ConversorPipe: factor}}
+</p>
