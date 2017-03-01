@@ -9,6 +9,8 @@ import {ConversorPipe} from "./pipes/conversor.pipe";
 import {HighlightDirective} from "./directives/highlight.directive";
 import {GigantDirective} from "./directives/gigant.directive";
 import {TicketService} from "./services/ticket.service";
+import {StoreModule} from "@ngrx/store";
+import {counterReducer} from "./services/counter";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import {TicketService} from "./services/ticket.service";
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    StoreModule.provideStore({counter: counterReducer})
   ],
   providers: [TicketService],
   bootstrap: [AppComponent]
