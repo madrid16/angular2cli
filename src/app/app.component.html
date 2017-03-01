@@ -35,3 +35,8 @@
 <button (click)="decrement()">Decrement</button>
 
 <button (click)="reset()">Reset</button>
+
+<p gigant>Progress: {{progress}}%</p>
+<p gigant *ngIf="progress >= 100">Done Processing {{label}} of angular zone!</p>
+<button gigant (click)="processWithinAngularZone()">With angularZone</button>
+<button gigant (click)="processOutsideOfAngularZone()">Without Angular zone</button>
