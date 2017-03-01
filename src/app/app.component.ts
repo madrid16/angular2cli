@@ -6,7 +6,7 @@ import {Observable} from "rxjs/Observable";
 import {Store} from "@ngrx/store";
 import {INCREMENT, DECREMENT, RESET} from "./services/counter";
 import {Router} from "@angular/router";
-import {AngularFire} from "angularfire2";
+import {AngularFire, AuthProviders, AuthMethods} from "angularfire2";
 
 interface AppState{
   counter: number;
@@ -31,9 +31,13 @@ export class AppComponent {
               private store: Store<AppState>,
               private _ngZone:NgZone,
               private router:Router,
-              private af: AngularFire
+              private af: AngularFire,
   ){
     console.log(af.database.list('/items'));
+    this.af.auth.login({
+      provider: AuthProviders.Google,
+      method: AuthMethods.Popup
+    });
     this.counter = store.select('counter');
     this.tickets = ticketService.getTickets();
     this.myForm = fb.group({
