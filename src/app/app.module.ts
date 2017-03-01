@@ -11,6 +11,10 @@ import {GigantDirective} from "./directives/gigant.directive";
 import {TicketService} from "./services/ticket.service";
 import {StoreModule} from "@ngrx/store";
 import {counterReducer} from "./services/counter";
+import {RouterModule} from "@angular/router";
+import {APPROUTER} from "./commons/router";
+import {PageNotFoundComponent} from "./pageNotFound/page.not.found.component";
+import {InitComponent} from "./init.component";
 
 @NgModule({
   declarations: [
@@ -18,16 +22,19 @@ import {counterReducer} from "./services/counter";
     InputComponent,
     ConversorPipe,
     HighlightDirective,
-    GigantDirective
+    GigantDirective,
+    PageNotFoundComponent,
+    InitComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    StoreModule.provideStore({counter: counterReducer})
+    StoreModule.provideStore({counter: counterReducer}),
+    RouterModule.forRoot(APPROUTER)
   ],
   providers: [TicketService],
-  bootstrap: [AppComponent]
+  bootstrap: [InitComponent]
 })
 export class AppModule { }
