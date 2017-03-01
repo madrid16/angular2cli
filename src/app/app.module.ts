@@ -16,6 +16,16 @@ import {APPROUTER} from "./commons/router";
 import {PageNotFoundComponent} from "./pageNotFound/page.not.found.component";
 import {InitComponent} from "./init.component";
 import {TicketDetail} from "./tickets/ticket.detail";
+import {AngularFireModule} from "angularfire2";
+
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyCNxDSycVPnuPBkDFaIxTSa5TNKOFTAv2Q",
+  authDomain: "angular-firebase-108a0.firebaseapp.com",
+  databaseURL: "https://angular-firebase-108a0.firebaseio.com",
+  storageBucket: "angular-firebase-108a0.appspot.com",
+  messagingSenderId: "126082551851"
+};
 
 @NgModule({
   declarations: [
@@ -34,7 +44,8 @@ import {TicketDetail} from "./tickets/ticket.detail";
     ReactiveFormsModule,
     HttpModule,
     StoreModule.provideStore({counter: counterReducer}),
-    RouterModule.forRoot(APPROUTER)
+    RouterModule.forRoot(APPROUTER),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [TicketService],
   bootstrap: [InitComponent]
