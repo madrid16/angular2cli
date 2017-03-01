@@ -25,6 +25,7 @@ export class AppComponent {
   myForm: FormGroup;
 
   counter: Observable<number>;
+  ticketFirebase: any;
 
   constructor(private ticketService: TicketService,
               private fb: FormBuilder,
@@ -33,7 +34,20 @@ export class AppComponent {
               private router:Router,
               private af: AngularFire,
   ){
-    console.log(af.database.list('/items'));
+    this.ticketFirebase = af.database.list('/ticket');
+    // this.ticketFirebase.push(
+    //   {'id': 1, 'titulo': 'printer not working', 'estado': 'in progress'}
+    // );
+    // this.ticketFirebase.push(
+    //   {'id': 2, 'titulo': 'computer not working', 'estado': 'finish'}
+    // );
+    // this.ticketFirebase.push(
+    //   {'id': 3, 'titulo': 'cellphone not working', 'estado': 'in progress'}
+    // );
+    // this.ticketFirebase.push(
+    //   {'id': 4, 'titulo': 'light not working', 'estado': 'really'}
+    // );
+
     this.af.auth.login({
       provider: AuthProviders.Google,
       method: AuthMethods.Popup
@@ -110,6 +124,20 @@ export class AppComponent {
 
   verTicket(id:number):void{
     this.router.navigate(['/ticket', id]);
+  }
+
+  updateTicket(key):void{
+    console.log(key);
+    this.ticketFirebase.update(key, {estado: 'in progress'});
+  }
+
+  removeTicket(key):void{
+    console.log(key);
+    this.ticketFirebase.remove(key);
+  }
+
+  removeAllTicket():void{
+    this.ticketFirebase.remove();
   }
 
 }
