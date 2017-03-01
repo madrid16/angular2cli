@@ -5,6 +5,7 @@ import {FormGroup, FormBuilder} from "@angular/forms";
 import {Observable} from "rxjs/Observable";
 import {Store} from "@ngrx/store";
 import {INCREMENT, DECREMENT, RESET} from "./services/counter";
+import {Router} from "@angular/router";
 
 interface AppState{
   counter: number;
@@ -27,10 +28,11 @@ export class AppComponent {
   constructor(private ticketService: TicketService,
               private fb: FormBuilder,
               private store: Store<AppState>,
-              private _ngZone:NgZone
+              private _ngZone:NgZone,
+              private router:Router
   ){
     this.counter = store.select('counter');
-    this.tickets = ticketService.getTicket();
+    this.tickets = ticketService.getTickets();
     this.myForm = fb.group({
       'name': ['Edgar']
     });
@@ -97,6 +99,10 @@ export class AppComponent {
     }else{
       doneCallBack();
     }
+  }
+
+  verTicket(id:number):void{
+    this.router.navigate(['/ticket', id]);
   }
 
 }

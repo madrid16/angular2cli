@@ -15,6 +15,7 @@ import {RouterModule} from "@angular/router";
 import {APPROUTER} from "./commons/router";
 import {PageNotFoundComponent} from "./pageNotFound/page.not.found.component";
 import {InitComponent} from "./init.component";
+import {TicketDetail} from "./tickets/ticket.detail";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {InitComponent} from "./init.component";
     HighlightDirective,
     GigantDirective,
     PageNotFoundComponent,
-    InitComponent
+    InitComponent,
+    TicketDetail
   ],
   imports: [
     BrowserModule,
