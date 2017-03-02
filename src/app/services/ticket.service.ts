@@ -24,6 +24,15 @@ export class TicketService{
     return this.http.post(this.urlBackend + 'ticket', {"id": id}).toPromise().then(this.extractData).catch(this.handleError);
   }
 
+  updateTicketMongo(id:number, titulo:string, estado:string):Promise<any[]>{
+    return this.http.post(this.urlBackend + 'ticketUpdate',
+      {
+        "id": id,
+        "titulo": titulo,
+        "estado": estado
+      }).toPromise().then(this.extractData).catch(this.handleError);
+  }
+
 
   private extractData(res:Response){
     let body = res.json();

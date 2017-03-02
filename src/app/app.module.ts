@@ -17,6 +17,7 @@ import {PageNotFoundComponent} from "./pageNotFound/page.not.found.component";
 import {InitComponent} from "./init.component";
 import {TicketDetail} from "./tickets/ticket.detail";
 import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
+import {UpdateComponent} from "./update/update.component";
 
 
 export const firebaseConfig = {
@@ -42,7 +43,8 @@ export const myFirebaseAuthConfig = {
     GigantDirective,
     PageNotFoundComponent,
     InitComponent,
-    TicketDetail
+    TicketDetail,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
