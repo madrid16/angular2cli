@@ -20,11 +20,28 @@
   <li *ngFor="let ticket of ticketMongo" gigant>
     <b>Ticket N: {{ticket.id}}</b> - {{ ticket.titulo }}
     <span myHighlight>[{{ticket.estado}}]</span>
-    <button (click)="verMongoTicket(ticket.id)">Ver</button>
-    <button (click)="udpdateMongoTicket(ticket.id)">Update</button>
-    <button (click)="removeMongoTicket(ticket.id)">Delete</button>
+    <button md-raised-button (click)="verMongoTicket(ticket.id)">Ver</button>
+    <button md-raised-button (click)="udpdateMongoTicket(ticket.id)">Update</button>
+    <button md-raised-button (click)="removeMongoTicket(ticket.id)">Delete</button>
   </li>
 </ul>
+
+<md-card class="example-card" *ngFor="let ticket of ticketMongo">
+  <md-card-header>
+    <md-card-title>{{ticket.id}}</md-card-title>
+    <md-card-subtitle>{{ticket.estado}}</md-card-subtitle>
+  </md-card-header>
+  <md-card-content>
+    <p>
+      {{ticket.titulo}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button (click)="verMongoTicket(ticket.id)"> VER </button>
+    <button md-button (click)="updateMongoTicket(ticket.id)"> UPDATE </button>
+    <button md-button (click)="removeMongoTicket(ticket.id)"> DELETE </button>
+  </md-card-actions>
+</md-card>
 
 <h1>Firebase</h1>
 

@@ -18,6 +18,7 @@ import {InitComponent} from "./init.component";
 import {TicketDetail} from "./tickets/ticket.detail";
 import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
 import {UpdateComponent} from "./update/update.component";
+import {MaterialModule} from "@angular/material";
 
 
 export const firebaseConfig = {
@@ -54,6 +55,7 @@ export const myFirebaseAuthConfig = {
     StoreModule.provideStore({counter: counterReducer}),
     RouterModule.forRoot(APPROUTER),
     AngularFireModule.initializeApp(firebaseConfig, myFirebaseAuthConfig),
+    MaterialModule.forRoot()
   ],
   providers: [TicketService],
   bootstrap: [InitComponent]
