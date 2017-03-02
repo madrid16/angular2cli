@@ -19,6 +19,7 @@ import {TicketDetail} from "./tickets/ticket.detail";
 import {AngularFireModule, AuthProviders, AuthMethods} from "angularfire2";
 import {UpdateComponent} from "./update/update.component";
 import {MaterialModule} from "@angular/material";
+import {ButtonModule} from "primeng/components/button/button";
 
 
 export const firebaseConfig = {
@@ -49,6 +50,7 @@ export const myFirebaseAuthConfig = {
   ],
   imports: [
     BrowserModule,
+    ButtonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,

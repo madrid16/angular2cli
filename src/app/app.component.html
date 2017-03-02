@@ -1,6 +1,16 @@
 <h1>
   {{title}}
 </h1>
+
+<nav class="ui-g">
+  <div class="ui-md-1 height100 rojo"></div>
+  <a class="ui-md-2 height100 verde" ></a>
+  <a class="ui-md-3 height100 azul" ></a>
+  <a class="ui-md-1 height100 violeta" ></a>
+  <a class="ui-md-2 height100 amarillo" ></a>
+  <div class="ui-md-1 height100 rojo"></div>
+</nav>
+
 <div *ngFor="let voto of votos">
   <input-component voto="{{voto.title}}" (addVoto)="addVoto($event)"></input-component>
 </div>
@@ -46,13 +56,12 @@
 <h1>Firebase</h1>
 
 <ul>
-  <li *ngFor="let ticket of ticketFirebase | async" gigant (click)="verTicket(ticket.id)">
+  <li *ngFor="let ticket of ticketFirebase | async">
     <b>Ticket N: {{ticket.id}}</b> - {{ ticket.titulo }}
     <span myHighlight>[{{ticket.estado}}]</span>
-    <button (click)="removeTicket(ticket.$key)">Remove</button>
+    <button pButton label="DELETE" (click)="removeTicket(ticket.$key)"></button>
     <button (click)="updateTicket(ticket.$key)">Update</button>
     <button (click)="verTicket(ticket.id)">Show</button>
-
   </li>
 </ul>
 
