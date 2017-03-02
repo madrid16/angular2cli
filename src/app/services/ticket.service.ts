@@ -16,9 +16,14 @@ export class TicketService{
 
   }
 
-  getTicketMongo():Promise<any[]>{
+  getTicketsMongo():Promise<any[]>{
     return this.http.get(this.urlBackend + 'tickets').toPromise().then(this.extractData).catch(this.handleError);
   }
+
+  getTicketMongo(id:number):Promise<any[]>{
+    return this.http.post(this.urlBackend + 'ticket', {"id": id}).toPromise().then(this.extractData).catch(this.handleError);
+  }
+
 
   private extractData(res:Response){
     let body = res.json();

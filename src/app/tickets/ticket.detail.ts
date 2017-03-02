@@ -9,6 +9,7 @@ import {TicketService} from "../services/ticket.service";
 
 export class TicketDetail{
   ticket:any;
+  errorMessage:string;
 
   constructor(
     private router: Router,
@@ -24,7 +25,10 @@ export class TicketDetail{
   // }
 
   ngOnInit(){
-      this.service.getTicketObserver(this.route.snapshot.params['id'])
-        .subscribe(ticket=>this.ticket = ticket);
+      this.service.getTicketMongo(this.route.snapshot.params['id'])
+        .then(
+          ticket => this.ticket = ticket,
+          error => this.errorMessage = <any>error
+        );
   }
 }

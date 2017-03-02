@@ -38,7 +38,7 @@ export class AppComponent {
               private af: AngularFire,
   ){
 
-    this.ticketService.getTicketMongo()
+    this.ticketService.getTicketsMongo()
       .then(
         ticket => this.ticketMongo = ticket,
         error => this.errorMessage = <any>error
@@ -130,6 +130,10 @@ export class AppComponent {
     }else{
       doneCallBack();
     }
+  }
+
+  verMongoTicket(id:number):void{
+    this.router.navigate(['/ticket', id]);
   }
 
   verTicket(id:number):void{
