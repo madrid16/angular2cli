@@ -17,11 +17,12 @@
 <h1>MONGODB</h1>
 
 <ul>
-  <li *ngFor="let ticket of ticketMongo" gigant (click)="verTicket(ticket.id)">
+  <li *ngFor="let ticket of ticketMongo" gigant>
     <b>Ticket N: {{ticket.id}}</b> - {{ ticket.titulo }}
     <span myHighlight>[{{ticket.estado}}]</span>
     <button (click)="verMongoTicket(ticket.id)">Ver</button>
     <button (click)="udpdateMongoTicket(ticket.id)">Update</button>
+    <button (click)="removeMongoTicket(ticket.id)">Delete</button>
   </li>
 </ul>
 

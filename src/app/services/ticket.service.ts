@@ -33,6 +33,13 @@ export class TicketService{
       }).toPromise().then(this.extractData).catch(this.handleError);
   }
 
+  removeTicketMongo(id:number):Promise<any[]>{
+    return this.http.post(this.urlBackend + 'ticketDelete',
+      {
+        "id": id
+      }).toPromise().then(this.extractData).catch(this.handleError);
+  }
+
 
   private extractData(res:Response){
     let body = res.json();

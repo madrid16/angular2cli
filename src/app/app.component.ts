@@ -38,11 +38,7 @@ export class AppComponent {
               private af: AngularFire,
   ){
 
-    this.ticketService.getTicketsMongo()
-      .then(
-        ticket => this.ticketMongo = ticket,
-        error => this.errorMessage = <any>error
-      );
+    this.callTicketsMongo();
 
     this.ticketFirebase = af.database.list('/ticket');
     // this.ticketFirebase.push(
@@ -67,6 +63,14 @@ export class AppComponent {
     this.myForm = fb.group({
       'name': ['Edgar']
     });
+  }
+
+  callTicketsMongo(){
+    this.ticketService.getTicketsMongo()
+      .then(
+        tickets => this.ticketMongo = tickets,
+        error => this.errorMessage = <any>error
+      )
   }
 
   votos = [
@@ -138,6 +142,21 @@ export class AppComponent {
 
   udpdateMongoTicket(id:number):void{
     this.router.navigate(['/update', id]);
+  }
+
+  removeMongoTicket(id:number):void{
+    this.ticketService.removeTicketMongo(id)
+      .then(
+        ok => this.checking(ok),
+        error => console.log(<any>error)
+      )
+  }
+
+  checking(ok:any){
+    if(ok.n == 1){
+      alert("delete successful");
+    }
+    this.callTicketsMongo();
   }
 
   verTicket(id:number):void{
